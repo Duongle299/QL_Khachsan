@@ -13,5 +13,6 @@ namespace DA_CS464C_NHOM03
     /// </summary>
     public partial class App : Application
     {
+
     }
 }
