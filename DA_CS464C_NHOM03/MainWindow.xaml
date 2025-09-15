@@ -7,6 +7,87 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Thông tin phòng"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label Margin="10" Grid.Row="0" Grid.Column="0" Content="Mã phòng:"/>
+                <TextBox Margin="10" Grid.Row="0" Grid.Column="1"/>
+                <Label Margin="10" Grid.Row="1" Grid.Column="0" Content="Số phòng:"/>
+                <TextBox Margin="10" Grid.Row="1" Grid.Column="1"/>
+                <Label Margin="10" Grid.Row="2" Grid.Column="0" Content="Loại phòng:"/>
+                <TextBox Margin="10" Grid.Row="2" Grid.Column="1"/>
+                <Label Margin="10" Grid.Row="3" Grid.Column="0" Content="Giá phòng:"/>
+                <TextBox Margin="10" Grid.Row="3" Grid.Column="1"/>
+                <Label Margin="10" Grid.Row="4" Grid.Column="0" Content="Tầng:"/>
+                <TextBox Margin="10" Grid.Row="4" Grid.Column="1"/>
+            </Grid>
+            <GroupItem Grid.Column="1" >
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Margin="10" Grid.Row="0" Grid.Column="0" Content="Sức chứa:"/>
+                    <TextBox Margin="10" Grid.Row="0" Grid.Column="1"/>
+                    <Label Margin="10" Grid.Row="1" Grid.Column="0" Content="Diện tích:"/>
+                    <TextBox Margin="10" Grid.Row="1" Grid.Column="1"/>
+                    <Label Margin="10" Grid.Row="2" Grid.Column="0" Content="Tiện nghi:"/>
+                    <TextBox Margin="10" Grid.Row="2" Grid.Column="1"/>
+                    <Label Margin="10" Grid.Row="3" Grid.Column="0" Content="Mô tả:"/>
+                    <TextBox Margin="10" Grid.Row="3" Grid.Column="1"/>
+                    <Label Margin="10" Grid.Row="4" Grid.Column="0" Content="Tình trạng:"/>
+                    <ComboBox Margin="10" Grid.Row="4" Grid.Column="1" />
+                </Grid>
+            </GroupItem>
+        </Grid>
+        <GroupBox Header="Chức năng quản lý" Grid.Column="1" >
+            <WrapPanel>
+                <Button Content="Thêm mới" Margin="10" Width="100" />
+                <Button Content="Cập nhật" Margin="10" Width="100"/>
+                <Button Content="Xóa" Margin="10" Width="100"/>
+                <Button Content="Tìm kiếm" Margin="10" Width="100"/>
+            </WrapPanel>
+        </GroupBox>
+        <DataGrid Grid.RowSpan="2" Grid.Row="5" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
