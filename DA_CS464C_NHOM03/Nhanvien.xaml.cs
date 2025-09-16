@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace DA_CS464C_NHOM03
 {
     /// <summary>
-    /// Interaction logic for quanlyphongkhachsan.xaml
+    /// Interaction logic for Nhanvien.xaml
     /// </summary>
-    public partial class quanlyphongkhachsan : Window
+    public partial class Nhanvien : Window
     {
-        public quanlyphongkhachsan()
+        public Nhanvien()
         {
             InitializeComponent();
         }

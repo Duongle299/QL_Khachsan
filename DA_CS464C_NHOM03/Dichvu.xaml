@@ -1,0 +1,45 @@
+﻿<Window x:Class="DA_CS464C_NHOM03.Dichvu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Quản lý Dịch vụ Ăn uống" Height="600" Width="900" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Thực đơn" Grid.Column="0" Margin="2">
+            <ListBox x:Name="lstMenu"/>
+        </GroupBox>
+        <GroupBox Header="Gọi món" Grid.Column="1" Margin="2">
+            <Grid Margin="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Margin="1">
+                    <TextBlock Text="Số lượng:" VerticalAlignment="Center" Margin="1"/>
+                    <TextBox x:Name="txtQuantity" Width="100" Margin="1"/>
+                    <Button Content="Thêm món" Background="LightGreen" Padding="2"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="1">
+                    <TextBlock Text="Tổng tiền:" FontWeight="Bold" VerticalAlignment="Center" Margin="1"/>
+                    <TextBlock x:Name="txtTotal" Text="0 VNĐ" Foreground="Red" FontSize="16" FontWeight="Bold"/>
+                </StackPanel>
+                <DataGrid x:Name="dgOrder" Grid.Row="2" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" Margin="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Tên món" Width="2*"/>
+                        <DataGridTextColumn Header="Số lượng" Width="*"/>
+                        <DataGridTextColumn Header="Giá" Width="*"/>
+                        <DataGridTextColumn Header="Thành tiền" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="1">
+                    <Button Content="Thanh toán" Background="LightBlue" Padding="2" Margin="1"/>
+                    <Button Content="In hóa đơn" Background="LightGray" Padding="2" Margin="1"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

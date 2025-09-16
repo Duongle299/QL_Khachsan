@@ -1,0 +1,49 @@
+﻿<Window x:Class="DA_CS464C_NHOM03.Nhanvien"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DA_CS464C_NHOM03"
+        mc:Ignorable="d"
+        Title="Nhanvien" Height="450" Width="800">
+    <Grid Margin="10">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label Content="Mã NV:" Width="70"/>
+                <TextBox x:Name="txtMaNV" Width="200"/>
+                <Label Content="Chức vụ:" Width="70" Margin="20,0,0,0"/>
+                <TextBox x:Name="txtChucVu" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label Content="Tên NV:" Width="70"/>
+                <TextBox x:Name="txtTenNV" Width="200"/>
+                <Label Content="SĐT:" Width="70" Margin="20,0,0,0"/>
+                <TextBox x:Name="txtSDT" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Label Content="Email:" Width="70"/>
+                <TextBox x:Name="txtEmail" Width="490"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,120,0,0">
+            <Button x:Name="btnThem" Content="Thêm" Width="80" Margin="5,5,5,235"/>
+            <Button x:Name="btnSua" Content="Sửa" Width="80" Margin="5,5,5,235"/>
+            <Button x:Name="btnXoa" Content="Xóa" Width="80" Margin="5,5,5,235"/>
+            <Button x:Name="btnTimKiem" Content="Tìm kiếm" Width="100" Margin="5,5,5,235"/>
+        </StackPanel>
+        <DataGrid x:Name="dgvNhanVien" 
+                  AutoGenerateColumns="False" 
+                  Height="250" Margin="0,180,0,0"
+                  VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã NV" Binding="{Binding MaNV}" Width="*"/>
+                <DataGridTextColumn Header="Tên NV" Binding="{Binding TenNV}" Width="*"/>
+                <DataGridTextColumn Header="Chức vụ" Binding="{Binding ChucVu}" Width="*"/>
+                <DataGridTextColumn Header="SĐT" Binding="{Binding SDT}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

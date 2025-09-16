@@ -10,18 +10,10 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
-        <!-- Tiêu đề -->
         <TextBlock Text="Quản lý Đặt phòng Khách sạn"
-                   FontSize="24" FontWeight="Bold"
-                   HorizontalAlignment="Center"
-                   Margin="2"/>
-
-        <!-- Thông tin khách hàng và phòng -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,0,15">
-
-            <!-- Thông tin khách hàng -->
-            <GroupBox Header="Thông tin khách hàng" Width="400" Margin="0,0,15,0">
+                   FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="2"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="5">
+            <GroupBox Header="Thông tin khách hàng" Width="400" Margin="15">
                 <Grid Margin="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -33,7 +25,6 @@
                         <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Tên khách hàng:" VerticalAlignment="Center"/>
                     <TextBox x:Name="txtTenKhach" Grid.Row="0" Grid.Column="1"/>
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Số điện thoại:" VerticalAlignment="Center"/>
@@ -44,8 +35,6 @@
                     <TextBox x:Name="txtEmail" Grid.Row="3" Grid.Column="1"/>
                 </Grid>
             </GroupBox>
-
-            <!-- Thông tin phòng -->
             <GroupBox Header="Thông tin phòng" Width="400">
                 <StackPanel Margin="10">
                     <StackPanel Orientation="Horizontal" Margin="5">
@@ -55,7 +44,6 @@
                             <ComboBoxItem Content="Thường"/>
                         </ComboBox>
                     </StackPanel>
-
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Số phòng:" Width="100" VerticalAlignment="Top"/>
                         <StackPanel Orientation="Horizontal">
@@ -75,10 +63,8 @@
                                     </x:Array>
                                 </ListBox.ItemsSource>
                             </ListBox>
-                            <Button x:Name="btnChonPhong" Content="Chọn" Width="80" Height="30" Margin="10,0,0,0" VerticalAlignment="Center" Click="btnChonPhong_Click"/>
                         </StackPanel>
                     </StackPanel>
-
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Tổng giá:" Width="100" VerticalAlignment="Center"/>
                         <TextBox x:Name="txtGiaPhong" Width="200" IsReadOnly="True"/>
@@ -86,17 +72,13 @@
                 </StackPanel>
             </GroupBox>
         </StackPanel>
-
-        <!-- Thông tin đặt phòng -->
-        <GroupBox Grid.Row="2" Header="Thông tin đặt phòng">
+        <GroupBox Grid.Row="2" Header="Thông tin đặt phòng" Height="260" Margin="10" Grid.RowSpan="2" VerticalAlignment="Top">
             <StackPanel Margin="10">
-                <!-- Ngày nhận & giờ nhận -->
                 <StackPanel Orientation="Horizontal" Margin="5" VerticalAlignment="Center">
                     <TextBlock Text="Ngày nhận:" Width="80" VerticalAlignment="Center"/>
                     <DatePicker x:Name="dpNgayNhan" Width="120"/>
-                    <TextBlock Text="Giờ nhận:" Width="70" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                    <ComboBox x:Name="cbGioNhan" Width="80">
-                        <!-- Giờ từ 0h đến 23h -->
+                    <TextBlock Text="Giờ nhận:" Width="80" VerticalAlignment="Center" Margin="20"/>
+                    <ComboBox x:Name="cbGioNhan" Width="80" Height="30" >
                         <ComboBoxItem Content="00:00"/>
                         <ComboBoxItem Content="01:00"/>
                         <ComboBoxItem Content="02:00"/>
@@ -124,12 +106,11 @@
                     </ComboBox>
                 </StackPanel>
 
-                <!-- Ngày trả & giờ trả -->
                 <StackPanel Orientation="Horizontal" Margin="5" VerticalAlignment="Center">
                     <TextBlock Text="Ngày trả:" Width="80" VerticalAlignment="Center"/>
                     <DatePicker x:Name="dpNgayTra" Width="120"/>
-                    <TextBlock Text="Giờ trả:" Width="70" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                    <ComboBox x:Name="cbGioTra" Width="80">
+                    <TextBlock Text="Giờ trả:" Width="80" VerticalAlignment="Center" Margin="20"/>
+                    <ComboBox x:Name="cbGioTra" Width="80" Height="30">
                         <ComboBoxItem Content="00:00"/>
                         <ComboBoxItem Content="01:00"/>
                         <ComboBoxItem Content="02:00"/>
@@ -158,9 +139,7 @@
                 </StackPanel>
             </StackPanel>
         </GroupBox>
-
-        <!-- Nút hành động -->
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="3" Height="50">
             <Button Content="Đặt phòng" Width="120" Margin="10"/>
         </StackPanel>
     </Grid>
