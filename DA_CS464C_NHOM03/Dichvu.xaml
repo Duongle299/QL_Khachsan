@@ -21,7 +21,7 @@
                 <StackPanel Orientation="Horizontal" Margin="1">
                     <TextBlock Text="Số lượng:" VerticalAlignment="Center" Margin="1"/>
                     <TextBox x:Name="txtQuantity" Width="100" Margin="1"/>
-                    <Button Content="Thêm món" Background="LightGreen" Padding="2" Click="btnAddOrder_Click"/>
+                    <Button Content="Thêm món" Background="LightGreen" Padding="2"/>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="1">
                     <TextBlock Text="Tổng tiền:" FontWeight="Bold" VerticalAlignment="Center" Margin="1"/>

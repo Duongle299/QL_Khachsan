@@ -11,11 +11,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Quản lý Đặt phòng Khách sạn"
-                   FontSize="24" FontWeight="Bold"
-                   HorizontalAlignment="Center"
-                   Margin="2"/>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,0,0,15">
-            <GroupBox Header="Thông tin khách hàng" Width="400" Margin="0,0,15,0">
+                   FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="2"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="5">
+            <GroupBox Header="Thông tin khách hàng" Width="400" Margin="15">
                 <Grid Margin="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -74,7 +72,7 @@
                 </StackPanel>
             </GroupBox>
         </StackPanel>
-        <GroupBox Grid.Row="2" Header="Thông tin đặt phòng" Height="250" Margin="10" Grid.RowSpan="2" VerticalAlignment="Top">
+        <GroupBox Grid.Row="2" Header="Thông tin đặt phòng" Height="260" Margin="10" Grid.RowSpan="2" VerticalAlignment="Top">
             <StackPanel Margin="10">
                 <StackPanel Orientation="Horizontal" Margin="5" VerticalAlignment="Center">
                     <TextBlock Text="Ngày nhận:" Width="80" VerticalAlignment="Center"/>
