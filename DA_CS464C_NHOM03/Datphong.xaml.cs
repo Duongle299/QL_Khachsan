@@ -18,37 +18,51 @@ namespace DA_CS464C_NHOM03
         public DatPhong()
         {
             InitializeComponent();
-        } 
-        private void cbLoaiPhong_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        }
+
+        private void btnTinhGia_Click(object sender, RoutedEventArgs e)
         {
             CapNhatGia();
         }
-        private void btnChonPhong_Click(object sender, RoutedEventArgs e)
-        {
-            if (lbSoPhong.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Vui lòng chọn ít nhất một phòng.");
-                return;
-            }
-            CapNhatGia();
-        }
+
         private void CapNhatGia()
         {
-            if (cbLoaiPhong.SelectedItem is ComboBoxItem selectedItem)
-            {
-                string loaiPhong = selectedItem.Content.ToString();
-                int soPhong = lbSoPhong.SelectedItems.Count;
+            string loaiPhong = cbLoaiPhong.Text.Trim();
+            string maPhong = cbMaphong.Text.Trim();
+            string soPhongText = cbSophong.Text.Trim();
 
-                if (loaiPhong == "VIP")
-                    txtGiaPhong.Text = (soPhong * 1000000).ToString("N0") + " VND";
-                else if (loaiPhong == "Thường")
-                    txtGiaPhong.Text = (soPhong * 500000).ToString("N0") + " VND";
-                else
-                    txtGiaPhong.Text = "";
+            if (string.IsNullOrEmpty(maPhong))
+            {
+                MessageBox.Show("Vui lòng nhập mã phòng.");
+                return;
             }
-        }
-       
+
+            if (string.IsNullOrEmpty(loaiPhong))
+            {
+                MessageBox.Show("Vui lòng nhập loại phòng.");
+                return;
+            }
+
+            if (!int.TryParse(soPhongText, out int soPhong) || soPhong <= 0)
+            {
+                MessageBox.Show("Số phòng không hợp lệ.");
+                return;
+            }
+
+            int gia = 0;
+            if (loaiPhong.Equals("VIP", StringComparison.OrdinalIgnoreCase))
+                gia = soPhong * 1000000;
+            else if (loaiPhong.Equals("Thường", StringComparison.OrdinalIgnoreCase))
+                gia = soPhong * 500000;
+            else
+            {
+                MessageBox.Show("Loại phòng không hợp lệ. Chỉ có 'VIP' hoặc 'Thường'.");
+                return;
+            }
+
+            txtGiaPhong.Text = gia.ToString("N0") + " VND";
         }
     }
+}
 
 
