@@ -13,7 +13,7 @@
         <TextBlock Text="Quản lý Đặt phòng Khách sạn"
                    FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="2"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="5">
-            <GroupBox Header="Thông tin khách hàng" Width="400" Margin="15">
+            <GroupBox Header="Thông tin khách hàng" Width="400" Margin="5">
                 <Grid Margin="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -38,109 +38,55 @@
             <GroupBox Header="Thông tin phòng" Width="400">
                 <StackPanel Margin="10">
                     <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Mã  phòng:" Width="100" VerticalAlignment="Center"/>
+                        <TextBox x:Name="cbMaphong" Width="200" >
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Loại phòng:" Width="100" VerticalAlignment="Center"/>
-                        <ComboBox x:Name="cbLoaiPhong" Width="200" SelectionChanged="cbLoaiPhong_SelectionChanged">
-                            <ComboBoxItem Content="VIP"/>
-                            <ComboBoxItem Content="Thường"/>
-                        </ComboBox>
+                        <TextBox x:Name="cbLoaiPhong" Width="200" >
+                        </TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Số phòng:" Width="100" VerticalAlignment="Top"/>
                         <StackPanel Orientation="Horizontal">
-                            <ListBox x:Name="lbSoPhong" Width="120" Height="120" SelectionMode="Multiple">
-                                <ListBox.ItemsSource>
-                                    <x:Array Type="{x:Type sys:Int32}">
-                                        <sys:Int32>1</sys:Int32>
-                                        <sys:Int32>2</sys:Int32>
-                                        <sys:Int32>3</sys:Int32>
-                                        <sys:Int32>4</sys:Int32>
-                                        <sys:Int32>5</sys:Int32>
-                                        <sys:Int32>6</sys:Int32>
-                                        <sys:Int32>7</sys:Int32>
-                                        <sys:Int32>8</sys:Int32>
-                                        <sys:Int32>9</sys:Int32>
-                                        <sys:Int32>10</sys:Int32>
-                                    </x:Array>
-                                </ListBox.ItemsSource>
-                            </ListBox>
+                            <TextBox x:Name="cbSophong" Width="200" >
+                            </TextBox>
                         </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5" VerticalAlignment="Center">
+                        <TextBlock Text="Ngày nhận:" Width="80" VerticalAlignment="Center"/>
+                        <DatePicker x:Name="dpNgayNhan" Width="120" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5" VerticalAlignment="Center">
+                        <TextBlock Text="Ngày trả:" Width="80" VerticalAlignment="Center"/>
+                        <DatePicker x:Name="dpNgayTra" Width="120" Height="25"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock Text="Tổng giá:" Width="100" VerticalAlignment="Center"/>
-                        <TextBox x:Name="txtGiaPhong" Width="200" IsReadOnly="True"/>
+                        <TextBox x:Name="txtGiaPhong" Width="200" Height="25"/>
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
         </StackPanel>
         <GroupBox Grid.Row="2" Header="Thông tin đặt phòng" Height="260" Margin="10" Grid.RowSpan="2" VerticalAlignment="Top">
             <StackPanel Margin="10">
-                <StackPanel Orientation="Horizontal" Margin="5" VerticalAlignment="Center">
-                    <TextBlock Text="Ngày nhận:" Width="80" VerticalAlignment="Center"/>
-                    <DatePicker x:Name="dpNgayNhan" Width="120"/>
-                    <TextBlock Text="Giờ nhận:" Width="80" VerticalAlignment="Center" Margin="20"/>
-                    <ComboBox x:Name="cbGioNhan" Width="80" Height="30" >
-                        <ComboBoxItem Content="00:00"/>
-                        <ComboBoxItem Content="01:00"/>
-                        <ComboBoxItem Content="02:00"/>
-                        <ComboBoxItem Content="03:00"/>
-                        <ComboBoxItem Content="04:00"/>
-                        <ComboBoxItem Content="05:00"/>
-                        <ComboBoxItem Content="06:00"/>
-                        <ComboBoxItem Content="07:00"/>
-                        <ComboBoxItem Content="08:00"/>
-                        <ComboBoxItem Content="09:00"/>
-                        <ComboBoxItem Content="10:00"/>
-                        <ComboBoxItem Content="11:00"/>
-                        <ComboBoxItem Content="12:00"/>
-                        <ComboBoxItem Content="13:00"/>
-                        <ComboBoxItem Content="14:00"/>
-                        <ComboBoxItem Content="15:00"/>
-                        <ComboBoxItem Content="16:00"/>
-                        <ComboBoxItem Content="17:00"/>
-                        <ComboBoxItem Content="18:00"/>
-                        <ComboBoxItem Content="19:00"/>
-                        <ComboBoxItem Content="20:00"/>
-                        <ComboBoxItem Content="21:00"/>
-                        <ComboBoxItem Content="22:00"/>
-                        <ComboBoxItem Content="23:00"/>
-                    </ComboBox>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="5" VerticalAlignment="Center">
-                    <TextBlock Text="Ngày trả:" Width="80" VerticalAlignment="Center"/>
-                    <DatePicker x:Name="dpNgayTra" Width="120"/>
-                    <TextBlock Text="Giờ trả:" Width="80" VerticalAlignment="Center" Margin="20"/>
-                    <ComboBox x:Name="cbGioTra" Width="80" Height="30">
-                        <ComboBoxItem Content="00:00"/>
-                        <ComboBoxItem Content="01:00"/>
-                        <ComboBoxItem Content="02:00"/>
-                        <ComboBoxItem Content="03:00"/>
-                        <ComboBoxItem Content="04:00"/>
-                        <ComboBoxItem Content="05:00"/>
-                        <ComboBoxItem Content="06:00"/>
-                        <ComboBoxItem Content="07:00"/>
-                        <ComboBoxItem Content="08:00"/>
-                        <ComboBoxItem Content="09:00"/>
-                        <ComboBoxItem Content="10:00"/>
-                        <ComboBoxItem Content="11:00"/>
-                        <ComboBoxItem Content="12:00"/>
-                        <ComboBoxItem Content="13:00"/>
-                        <ComboBoxItem Content="14:00"/>
-                        <ComboBoxItem Content="15:00"/>
-                        <ComboBoxItem Content="16:00"/>
-                        <ComboBoxItem Content="17:00"/>
-                        <ComboBoxItem Content="18:00"/>
-                        <ComboBoxItem Content="19:00"/>
-                        <ComboBoxItem Content="20:00"/>
-                        <ComboBoxItem Content="21:00"/>
-                        <ComboBoxItem Content="22:00"/>
-                        <ComboBoxItem Content="23:00"/>
-                    </ComboBox>
-                </StackPanel>
+                <DataGrid x:Name="dgOrder" Grid.Row="2" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" Margin="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mã phòng" Width="120"/>
+                        <DataGridTextColumn Header="Loại phòng" Width="120"/>
+                        <DataGridTextColumn Header="Số lượng" Width="100"/>
+                        <DataGridTextColumn Header="Ngày nhận " Width="*"/>
+                        <DataGridTextColumn Header="Ngày trả " Width="*"/>
+                        <DataGridTextColumn Header="Thành tiền" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
         </GroupBox>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="3" Height="50">
-            <Button Content="Đặt phòng" Width="120" Margin="10"/>
+            <Button Content="Sửa" Width="120" Margin="10"/>
+            <Button Content="Xóa" Width="120" Margin="10"/>
+            <Button Content="Tìm kiếm" Width="120" Margin="10"/>
         </StackPanel>
     </Grid>
 </Window>
