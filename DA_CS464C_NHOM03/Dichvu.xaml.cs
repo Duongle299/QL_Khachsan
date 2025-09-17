@@ -17,14 +17,7 @@ namespace DA_CS464C_NHOM03
     public partial class Dichvu : Window
     {
 
-        public Dichvu()
-        {
-            InitializeComponent();
-            lstMenu.Items.Add(new MonAn { MaMon = "M01", TenMon = "Phở Bò", Gia = 50000 });
-            lstMenu.Items.Add(new MonAn { MaMon = "M02", TenMon = "Cơm Gà", Gia = 60000 });
-            lstMenu.Items.Add(new MonAn { MaMon = "M03", TenMon = "Cà phê sữa", Gia = 30000 });
-            lstMenu.Items.Add(new MonAn { MaMon = "M04", TenMon = "Nước suối", Gia = 15000 });
-        }
+        
     }
     public class MonAn
     {
