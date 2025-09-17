@@ -14,15 +14,20 @@ namespace DA_CS464C_NHOM03
     
     public partial class Phong
     {
-        public int Maphong { get; set; }
-        public Nullable<int> Sophong { get; set; }
-        public string Loaiphong { get; set; }
-        public Nullable<decimal> Giaphong { get; set; }
-        public Nullable<int> Tang { get; set; }
-        public Nullable<int> Succhua { get; set; }
-        public Nullable<int> Dientich { get; set; }
-        public string Tiennghi { get; set; }
-        public string Mota { get; set; }
-        public string Tinhtrang { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Phong()
+        {
+            this.DatPhongs = new HashSet<DatPhong>();
+        }
+    
+        public string MaPhong { get; set; }
+        public string LoaiPhong { get; set; }
+        public int SoPhong { get; set; }
+        public Nullable<System.DateTime> NgayNhan { get; set; }
+        public Nullable<System.DateTime> NgayTra { get; set; }
+        public Nullable<decimal> TongGia { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DatPhong> DatPhongs { get; set; }
     }
 }
