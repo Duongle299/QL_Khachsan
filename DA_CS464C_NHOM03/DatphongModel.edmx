@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_DatphongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_DatphongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DatPhong">
           <Key>
             <PropertyRef Name="MaDatPhong" />
@@ -17,6 +17,18 @@
           <Property Name="NgayTra" Type="date" Nullable="false" />
           <Property Name="ThanhTien" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
+        <EntityType Name="Dichvu">
+          <Key>
+            <PropertyRef Name="MaDV" />
+          </Key>
+          <Property Name="MaDV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenDV" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LoaiDV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="255" />
+          <Property Name="KhungGioHoatDong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DonGia" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="TinhTrang" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="KhachHang">
           <Key>
             <PropertyRef Name="MaKH" />
@@ -27,16 +39,30 @@
           <Property Name="CCCD" Type="varchar" MaxLength="20" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Nhanvien">
+          <Key>
+            <PropertyRef Name="Manv" />
+          </Key>
+          <Property Name="Manv" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tennv" Type="nchar" MaxLength="10" />
+          <Property Name="Chucvu" Type="nvarchar" MaxLength="50" />
+          <Property Name="sdt" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Phong">
           <Key>
             <PropertyRef Name="MaPhong" />
           </Key>
           <Property Name="MaPhong" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="LoaiPhong" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="SoPhong" Type="int" Nullable="false" />
-          <Property Name="NgayNhan" Type="date" />
-          <Property Name="NgayTra" Type="date" />
-          <Property Name="TongGia" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LoaiPhong" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoPhong" Type="int" />
+          <Property Name="giaphong" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="tang" Type="int" />
+          <Property Name="succhua" Type="int" />
+          <Property Name="dientich" Type="varchar" MaxLength="50" />
+          <Property Name="mota" Type="nvarchar(max)" />
+          <Property Name="tiennghi" Type="nvarchar" MaxLength="50" />
+          <Property Name="tinhtrang" Type="int" />
         </EntityType>
         <Association Name="FK_DatPhong_KhachHang">
           <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
@@ -64,7 +90,9 @@
         </Association>
         <EntityContainer Name="DB_DatphongModelStoreContainer">
           <EntitySet Name="DatPhong" EntityType="Self.DatPhong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dichvu" EntityType="Self.Dichvu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nhanvien" EntityType="Self.Nhanvien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DatPhong_KhachHang" Association="Self.FK_DatPhong_KhachHang">
             <End Role="KhachHang" EntitySet="KhachHang" />
@@ -75,8 +103,7 @@
             <End Role="DatPhong" EntitySet="DatPhong" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_DatphongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -110,12 +137,19 @@
             <PropertyRef Name="MaPhong" />
           </Key>
           <Property Name="MaPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LoaiPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SoPhong" Type="Int32" Nullable="false" />
+          <Property Name="LoaiPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoPhong" Type="Int32" />
           <Property Name="NgayNhan" Type="DateTime" Precision="0" />
           <Property Name="NgayTra" Type="DateTime" Precision="0" />
           <Property Name="TongGia" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="DatPhongs" Relationship="Self.FK_DatPhong_Phong" FromRole="Phong" ToRole="DatPhong" />
+          <Property Name="giaphong" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="tang" Type="Int32" />
+          <Property Name="succhua" Type="Int32" />
+          <Property Name="dientich" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tiennghi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tinhtrang" Type="Int32" />
         </EntityType>
         <Association Name="FK_DatPhong_KhachHang">
           <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
@@ -153,7 +187,31 @@
             <End Role="Phong" EntitySet="Phongs" />
             <End Role="DatPhong" EntitySet="DatPhongs" />
           </AssociationSet>
+          <EntitySet Name="Dichvus" EntityType="DB_DatphongModel.Dichvu" />
+          <EntitySet Name="Nhanviens" EntityType="DB_DatphongModel.Nhanvien" />
         </EntityContainer>
+        <EntityType Name="Dichvu">
+          <Key>
+            <PropertyRef Name="MaDV" />
+          </Key>
+          <Property Name="MaDV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenDV" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiDV" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="KhungGioHoatDong" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DonGia" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="TinhTrang" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Nhanvien">
+          <Key>
+            <PropertyRef Name="Manv" />
+          </Key>
+          <Property Name="Manv" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tennv" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Chucvu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -187,12 +245,40 @@
           <EntitySetMapping Name="Phongs">
             <EntityTypeMapping TypeName="DB_DatphongModel.Phong">
               <MappingFragment StoreEntitySet="Phong">
+                <ScalarProperty Name="tinhtrang" ColumnName="tinhtrang" />
+                <ScalarProperty Name="tiennghi" ColumnName="tiennghi" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="dientich" ColumnName="dientich" />
+                <ScalarProperty Name="succhua" ColumnName="succhua" />
+                <ScalarProperty Name="tang" ColumnName="tang" />
+                <ScalarProperty Name="giaphong" ColumnName="giaphong" />
                 <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
                 <ScalarProperty Name="LoaiPhong" ColumnName="LoaiPhong" />
                 <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
-                <ScalarProperty Name="NgayNhan" ColumnName="NgayNhan" />
-                <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
-                <ScalarProperty Name="TongGia" ColumnName="TongGia" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dichvus">
+            <EntityTypeMapping TypeName="DB_DatphongModel.Dichvu">
+              <MappingFragment StoreEntitySet="Dichvu">
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="KhungGioHoatDong" ColumnName="KhungGioHoatDong" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="LoaiDV" ColumnName="LoaiDV" />
+                <ScalarProperty Name="TenDV" ColumnName="TenDV" />
+                <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nhanviens">
+            <EntityTypeMapping TypeName="DB_DatphongModel.Nhanvien">
+              <MappingFragment StoreEntitySet="Nhanvien">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="Chucvu" ColumnName="Chucvu" />
+                <ScalarProperty Name="Tennv" ColumnName="Tennv" />
+                <ScalarProperty Name="Manv" ColumnName="Manv" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

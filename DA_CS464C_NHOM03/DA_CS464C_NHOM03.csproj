@@ -97,9 +97,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Datphong.tt</DependentUpon>
     </Compile>
-    <Compile Include="DichVu.cs">
-      <DependentUpon>DichvuModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Dichvu.xaml.cs">
       <DependentUpon>Dichvu.xaml</DependentUpon>
     </Compile>
@@ -121,21 +118,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DichvuModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DichvuModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DichvuModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DichvuModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DichvuModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DichvuModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="KhachHang.cs">
       <DependentUpon>Datphong.tt</DependentUpon>
@@ -163,21 +145,6 @@
     <Compile Include="Phong.cs">
       <DependentUpon>Datphong.tt</DependentUpon>
     </Compile>
-    <Compile Include="PhongModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PhongModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PhongModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PhongModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PhongModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PhongModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -195,10 +162,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="PhongModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PhongModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <EntityDeploy Include="DatphongModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DatphongModel.Designer.cs</LastGenOutput>
@@ -206,17 +169,7 @@
     <None Include="DatphongModel.edmx.diagram">
       <DependentUpon>DatphongModel.edmx</DependentUpon>
     </None>
-    <EntityDeploy Include="DichvuModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DichvuModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DichvuModel.edmx.diagram">
-      <DependentUpon>DichvuModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
-    <None Include="PhongModel.edmx.diagram">
-      <DependentUpon>PhongModel.edmx</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -244,40 +197,6 @@
     <Content Include="DB_Datphong_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DB_Datphong.mdf</DependentUpon>
-    </Content>
-    <Content Include="DB_phong.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DB_phong_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DB_phong.mdf</DependentUpon>
-    </Content>
-    <Content Include="DB_Dichvu.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DB_Dichvu_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DB_Dichvu.mdf</DependentUpon>
-    </Content>
-    <Content Include="DichvuModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DichvuModel.edmx</DependentUpon>
-      <LastGenOutput>DichvuModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DichvuModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DichvuModel.edmx</DependentUpon>
-      <LastGenOutput>DichvuModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="PhongModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PhongModel.Context.cs</LastGenOutput>
-      <DependentUpon>PhongModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="PhongModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PhongModel.edmx</DependentUpon>
-      <LastGenOutput>PhongModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
