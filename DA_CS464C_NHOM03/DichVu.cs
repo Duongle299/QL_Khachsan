@@ -19,7 +19,7 @@ namespace DA_CS464C_NHOM03
         public string LoaiDV { get; set; }
         public string MoTa { get; set; }
         public string KhungGioHoatDong { get; set; }
-        public decimal DonGia { get; set; }
+        public Nullable<decimal> DonGia { get; set; }
         public string TinhTrang { get; set; }
     }
 }

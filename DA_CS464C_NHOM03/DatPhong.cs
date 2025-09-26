@@ -16,11 +16,11 @@ namespace DA_CS464C_NHOM03
     {
         public int MaDatPhong { get; set; }
         public int MaKH { get; set; }
-        public string MaPhong { get; set; }
-        public int SoLuong { get; set; }
-        public System.DateTime NgayNhan { get; set; }
-        public System.DateTime NgayTra { get; set; }
-        public decimal ThanhTien { get; set; }
+        public int MaPhong { get; set; }
+        public Nullable<int> SoLuong { get; set; }
+        public Nullable<System.DateTime> NgayNhan { get; set; }
+        public Nullable<System.DateTime> NgayTra { get; set; }
+        public Nullable<decimal> ThanhTien { get; set; }
     
         public virtual KhachHang KhachHang { get; set; }
         public virtual Phong Phong { get; set; }

@@ -19,14 +19,5 @@ namespace DA_CS464C_NHOM03
 
         
     }
-    public class MonAn
-    {
-        public string MaMon { get; set; }
-        public string TenMon { get; set; }
-        public int Gia { get; set; }
-        public override string ToString()
-        {
-            return TenMon + " - " + Gia + " VNĐ";
-        }
-    }
+ 
 }
