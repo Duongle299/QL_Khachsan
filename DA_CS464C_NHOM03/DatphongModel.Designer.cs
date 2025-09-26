@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'F:\vanhung\vanhung\DA_CS464C_NHOM03\DatphongModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\ACER\source\repos\QL_KhachSan_03\DA_CS464C_NHOM03\DatphongModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
