@@ -29,19 +29,19 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="Mã dịch vụ:" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Height="25"/>
+                <TextBox x:Name="txtMaDV" Grid.Row="0" Grid.Column="1" Height="25"/>
                 <Label Grid.Row="1" Grid.Column="0" Content="Tên dịch vụ:" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Height="25"/>
+                <TextBox x:Name="txtTenDV" Grid.Row="1" Grid.Column="1" Height="25"/>
                 <Label Grid.Row="2" Grid.Column="0" Content="Loại dịch vụ:" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Height="25"/>
+                <TextBox x:Name="txtLoaiDV" Grid.Row="2" Grid.Column="1" Height="25"/>
                 <Label Grid.Row="3" Grid.Column="0" Content="Mô tả:" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="3" Grid.Column="1" Height="25"/>
+                <TextBox x:Name="txtMoTa" Grid.Row="3" Grid.Column="1" Height="25"/>
                 <Label Grid.Row="4" Grid.Column="0" Content="Khung giờ hoạt động:" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Height="25"/>
+                <TextBox x:Name="txtKhungGio" Grid.Row="4" Grid.Column="1" Height="25"/>
                 <Label Grid.Row="5" Grid.Column="0" Content="Đơn giá:" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="5" Grid.Column="1" Height="25"/>
+                <TextBox x:Name="txtDonGia" Grid.Row="5" Grid.Column="1" Height="25"/>
                 <Label Grid.Row="6" Grid.Column="0" Content="Tình trạng:" VerticalAlignment="Center"/>
-                <ComboBox Grid.Row="6" Grid.Column="1" Height="25">
+                <ComboBox x:Name="cbTinhTrang" Grid.Row="6" Grid.Column="1" Height="25">
                     <ComboBoxItem Content="Trống"/>
                     <ComboBoxItem Content="Đã đặt"/>
                     <ComboBoxItem Content="Đang sử dụng"/>
@@ -63,10 +63,9 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-            <Button Content="Thêm mới" Width="120" Height="35" Margin="10"/>
-            <Button Content="Cập nhật" Width="120" Height="35" Margin="10"/>
-            <Button Content="Xóa" Width="120" Height="35" Margin="10"/>
-            <Button Content="Tìm kiếm" Width="120" Height="35" Margin="10"/>
+            <Button x:Name="btnThem" Content="Thêm mới" Width="120" Height="35" Margin="10"/>
+            <Button x:Name="btnCapNhat" Content="Cập nhật" Width="120" Height="35" Margin="10"/>
+            <Button x:Name="btnXoa" Content="Xóa" Width="120" Height="35" Margin="10"/>
         </StackPanel>
     </Grid>
 </Window>
