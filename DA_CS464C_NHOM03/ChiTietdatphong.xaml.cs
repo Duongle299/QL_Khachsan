@@ -11,58 +11,132 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 namespace DA_CS464C_NHOM03
 {
     public partial class ChiTietdatphong : Window
     {
+        QLKHACHSANEntities db = new QLKHACHSANEntities();
         public ChiTietdatphong()
         {
             InitializeComponent();
         }
-
-        private void btnTinhGia_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            CapNhatGia();
+            LoadData();
+        }
+        public void LoadData()
+        {
+            dgOrder.ItemsSource = db.DatPhongs.ToList();
         }
 
-        private void CapNhatGia()
+        private void btn_them_Click(object sender, RoutedEventArgs e)
         {
-            string loaiPhong = cbLoaiPhong.Text.Trim();
-            string maPhong = cbMaphong.Text.Trim();
-            string soPhongText = cbSophong.Text.Trim();
-
-            if (string.IsNullOrEmpty(maPhong))
+            try
             {
-                MessageBox.Show("Vui lòng nhập mã phòng.");
+                int soLuong = 0;
+                int.TryParse(cbSophong.Text, out soLuong);
+
+                int thanhTien = 0;
+                int.TryParse(txtGiaPhong.Text, out thanhTien);
+
+                DatPhong dp = new DatPhong()
+                {
+                    MaKH = int.Parse(txtMaKH.Text),
+                    MaPhong  = int.Parse(cbMaphong.Text),
+                    SoLuong = soLuong,
+                    NgayNhan = dpNgayNhan.SelectedDate ?? DateTime.Now,
+                    NgayTra = dpNgayTra.SelectedDate ?? DateTime.Now,
+                    ThanhTien = thanhTien
+                };
+
+                db.DatPhongs.Add(dp);
+                db.SaveChanges();
+                MessageBox.Show("Thêm thành công!");
+                LoadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        private void btn_capnhap_Click(object sender, RoutedEventArgs e)
+        {
+            var dpchon = dgOrder.SelectedItem as DatPhong;
+            if (dpchon == null)
+            {
+                MessageBox.Show("Chọn bản ghi cần sửa");
                 return;
             }
 
-            if (string.IsNullOrEmpty(loaiPhong))
+            try
             {
-                MessageBox.Show("Vui lòng nhập loại phòng.");
+                var dp = db.DatPhongs.Find(dpchon.MaDatPhong);
+                if (dp != null)
+                {
+                    dp.MaKH = int.Parse(txtMaKH.Text);
+                    dp.MaPhong = int.Parse(cbMaphong.Text);
+                    int soLuong = 0;
+                    int.TryParse(cbSophong.Text, out soLuong);
+                    dp.SoLuong = soLuong;
+
+                    dp.NgayNhan = dpNgayNhan.SelectedDate ?? DateTime.Now;
+                    dp.NgayTra = dpNgayTra.SelectedDate ?? DateTime.Now;
+
+                    int thanhTien = 0;
+                    int.TryParse(txtGiaPhong.Text, out thanhTien);
+                    dp.ThanhTien = thanhTien;
+
+                    db.SaveChanges();
+                    MessageBox.Show("Cập nhật thành công!");
+                    LoadData();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        private void btn_xoa_Click(object sender, RoutedEventArgs e)
+        {
+            var dpchon = dgOrder.SelectedItem as DatPhong;
+            if (dpchon == null)
+            {
+                MessageBox.Show("Chọn bản ghi cần xóa");
                 return;
             }
 
-            if (!int.TryParse(soPhongText, out int soPhong) || soPhong <= 0)
+            try
             {
-                MessageBox.Show("Số phòng không hợp lệ.");
-                return;
+                var dp = db.DatPhongs.Find(dpchon.MaDatPhong);
+                if (dp != null)
+                {
+                    db.DatPhongs.Remove(dp);
+                    db.SaveChanges();
+                    MessageBox.Show("Xóa thành công!");
+                    LoadData();
+                }
             }
-
-            int gia = 0;
-            if (loaiPhong.Equals("VIP", StringComparison.OrdinalIgnoreCase))
-                gia = soPhong * 1000000;
-            else if (loaiPhong.Equals("Thường", StringComparison.OrdinalIgnoreCase))
-                gia = soPhong * 500000;
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Loại phòng không hợp lệ. Chỉ có 'VIP' hoặc 'Thường'.");
-                return;
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
+        }
 
-            txtGiaPhong.Text = gia.ToString("N0") + " VND";
+        private void DgOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var dpchon = dgOrder.SelectedItem as DatPhong;
+            if (dpchon == null) return;
+
+            txtMaKH.Text = dpchon.MaKH.ToString();
+            cbMaphong.Text = dpchon.MaPhong.ToString();
+            cbSophong.Text = dpchon.SoLuong.ToString();
+            dpNgayNhan.SelectedDate = dpchon.NgayNhan;
+            dpNgayTra.SelectedDate = dpchon.NgayTra;
+            txtGiaPhong.Text = dpchon.ThanhTien.ToString();
         }
     }
 }
-
 
